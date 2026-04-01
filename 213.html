@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tea Garden </title>
+    <link rel="stylesheet" href="style321.css">
+</head>
+<body>
+<div class="logo-container">
+    <h1>Tea Garden</h1>
+</div>
+<nav class="navbar">
+    <a href="#">Главная</a>
+    <a href="#">История</a>
+    <a href="#">Каталог</a>
+    <a href="#">Корзина</a>
+    <a href="#">Профиль</a>
+    <a href="#">Настройки</a>
+</nav>
+<header class="container">
+    <div class="filters">
+        <label>Фильтр:</label>
+        <select id="tea-filter">
+            <option value="all">Весь мир</option>
+            <option value="black">Чёрный</option>
+            <option value="green">Зелёный</option>
+            <option value="white">Белый</option>
+            <option value="oolong">Улуны</option>
+            <option value="pu-erh">Пуэры</option>
+        </select>
+    </div>
+</header>
+
+<div class="simple-banner">
+  <div class="banner-content">
+    <span class="banner-badge">Временное предложение</span>
+    <p class="banner-text">Получите скидку 20% на первую покупку по промокоду <strong>TEA310326</strong></p>
+    <a href="https://vash-sayt.ru" class="banner-button">Подробнее</a>
+  </div>
+</div>
+
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+    body {
+        background-color: #f2f0fb;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: #333;
+    }
+    /* Навигация */
+    .navigation {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 30px;
+        background-color: #d9e8d1; 
+        border-bottom: 1px solid #c5d6bc;
+    }
+    .logo {
+        font-size: 1.5em;
+        font-weight: bold;
+        color: #6b7031; 
+    }
+    .nav-menu {
+        display: flex;
+        list-style: none;
+        gap: 20px;
+    }
+    .nav-menu a {
+        color: #6b7031;
+        text-decoration: none;
+        font-weight: 600;
+        padding: 5px 10px;
+        transition: 0.3s;
+    }
+    .nav-menu a:hover {
+        background-color: #f2f0fb;
+        border-radius: 5px;
+    }
+    /* Сетка товаров */
+    .products-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        padding: 40px 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    /* Карточка товара */
+    .product-card {
+        flex: 1 1 280px; 
+        background: white;
+        border-radius: 15px 15px 5px 5px; /* Скругление  */
+        border: 1px solid #e0e0e0;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        transition: transform 0.2s;
+    }
+    .product-card:hover {
+        transform: translateY(-5px);
+    }
+    .product-image {
+        width: 100%;
+        height: 200px;
+        background-color: #fafafa;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #999;
+        border-bottom: 1px solid #f0f0f0;
+    }
+    .product-content {
+        padding: 20px;
+        flex-grow: 1;
+    }
+    .product-content h3 {
+        color: #6b7031; /* заголовок */
+        margin-bottom: 10px;
+        font-size: 1.3em;
+    }
+    .product-content p {
+        color: #666;
+        font-size: 0.95em;
+    }
+    .price {
+        display: block;
+        margin-top: 10px;
+        font-size: 1.1em;
+        color: #333;
+        font-weight: bold;
+    }
+    /* Кнопка «В корзину» */
+    .product-button {
+        margin: 0 20px 20px 20px;
+        padding: 8px 15px;
+        background-color: #fff;
+        color: #333;
+        text-align: center;
+        text-decoration: none;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 0.9em;
+        width: fit-content; /* Кнопка не на всю ширину */
+        transition: all 0.2s;
+    }
+    .product-button:hover {
+        background-color: #f0f0f0;
+        border-color: #999;
+    }
+    .product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Фото заполнит область без растягивания */
+    display: block;
+}
+.product-image {
+    width: 100%;
+    height: 200px;
+    background-color: #fafafa;
+    overflow: hidden; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    display: block;
+}
+
+</style>
+<body>
+    <div class="products-container">
+        <!-- Карточка 1 -->
+        <div class="product-card">
+            <img src="ASSAM.jpg" alt="Чай Ассам">
+            <div class="product-content">
+                <h3>Ассам (Индия)</h3>
+                <p>Крепкий, солодовый чай. Идеально подходит для завтрака.</p>
+                <span class="price">1 999 ₽</span>
+            </div>
+            <a href="#" class="product-button">В корзину</a>
+        </div>
+
+        <!-- Карточка 2 -->
+        <div class="product-card">
+            <img src="Дарджилинг.jpg" alt="Дарджилинг">
+            <div class="product-content">
+                <h3>Дарджилинг</h3>
+                <p>Цветочный аромат и легкое мускатное послевкусие.</p>
+                <span class="price">2 499 ₽</span>
+            </div>
+            <a href="#" class="product-button">В корзину</a>
+        </div>
+         
+          <!-- Карточка 3 -->
+        <div class="product-card">
+            <img src="Звезда Кении.jpg" alt="Звезда Кении">
+            <div class="product-content">
+                <h3>Звезда Кении</h3>
+                <p>культивируется на лучших плантациях страны, настой имеет янтарно-коричневый оттенок. В многогранном вкусе напитка ощущаются медовые нотки и лёгкий привкус солода..</p>
+                <span class="price">3 499 ₽</span>
+            </div>
+            <a href="#" class="product-button">В корзину</a>
+        </div>
+
+          <!-- Карточка 4 -->
+        <div class="product-card">
+            <img src="Сокровище Кении.jpg" alt="Сокровище Кении">
+            <div class="product-content">
+                <h3>Сокровище Кении</h3>
+                <p>классический сорт кенийского чая, нежный аромат, золотой цвет и выраженные цветочные нотки во вкусе.</p>
+                <span class="price">20 499 ₽</span>
+            </div>
+            <a href="#" class="product-button">В корзину</a>
+        </div>
+    </div>
+</body>
+
+<main class="container">
+    <div class="tea-collection" id="tea-grid">
+        <!-- ЧЕРНЫЙ ЧАЙ -->
+        <div class="category-title" data-type="black">Черный чай</div>
+        <div class="tea-item" data-type="black"><h3>Ассам (Индия)</h3><p>Крепкий, солодовый чай. Идеально с молоком.</p><button class="buy-btn">В корзину</button></div>
+        <div class="tea-item" data-type="black"><h3>Дарджилинг (Индия)</h3><p>Мускатный вкус и цветочный аромат.</p><button class="buy-btn">В корзину</button></div>
+        <div class="tea-item" data-type="black"><h3>Кимун (Китай)</h3><p>Винный аромат с легкими нотками дыма.</p><button class="buy-btn">В корзину</button></div>
+        <div class="tea-item" data-type="black"><h3>Лапсанг Сушонг</h3><p>Аромат копчения на сосновых дровах.</p><button class="buy-btn">В корзину</button></div>
+        <div class="tea-item" data-type="black"><h3>Юньнань (Кения)</h3><p>Производится на северо-востоке Индии, в предгорьях Гималаев. Лёгкий, цветочный, с фруктовыми и мускатными нотами. Часто называется "шампанским среди чаёв"</p><button class="buy-btn">В корзину</button></div>
+        <div class="tea-item" data-type="black"><h3>Лапсанг Сушонг(Китай)</h3><p>Редкий китайский сорт с ярким, смолистым ароматом дыма, проходит специальную обработку: копчение на хвойных дровах. Вкус — глубокий, слегка сладковатый, с древесными и пряными оттенками.</p><button class="buy-btn">В корзину</button></div>
+        <div class="tea-item" data-type="black"><h3>Дирааба (Китай)</h3><p>Высокогорный чай с ярко выраженным золотисто-медным настоем.</p><button class="buy-btn">В корзину</button></div>
+        <div class="tea-item" data-type="black"><h3>Канди (Китай)</h3><p>с плантаций этого региона собирают крепкий классический чай, который проявляет лучшие качества в сочетании с молоком. </p><button class="buy-btn">В корзину</button></div>
+        <div class="tea-item" data-type="black"><h3>Нувара-Элия(Китай)</h3><p>сорт, который называют «чайным шампанским» из-за мягкого, свежего вкуса, цветочного аромата и светло-золотистого настоя.    </p><button class="buy-btn">В корзину</button></div>
+        <div class="tea-item" data-type="black"><h3>Намунукула (Китай)</h3><p>плантационный чёрный чай, выращенный в провинции Ува на известной горной плантации Намунукула, настой янтарного цвета.</p><button class="buy-btn">В корзину</button></div>
+        <div class="tea-item" data-type="black"><h3>Кения Нанди</h3><p>Аромат копчения на сосновых дровах.</p><button class="buy-btn">В корзину</button></div>
+        <div class="tea-item" data-type="black"><h3>Звезда Кении</h3><p>культивируется на лучших плантациях страны, настой имеет янтарно-коричневый оттенок. В многогранном вкусе напитка ощущаются медовые нотки и лёгкий привкус солода..</p><button class="buy-btn">В корзину</button></div>
+        <div class="tea-item" data-type="black"><h3>Сокровище Кении</h3><p>классический сорт кенийского чая, нежный аромат, золотой цвет и выраженные цветочные нотки во вкусе.</p><button class="buy-btn">В корзину</button></div>
+        <div class="tea-item" data-type="black"><h3>Кения Каймоси</h3><p>элитный сорт с освежающим лимонным вкусом, при заваривании получается прозрачный настой ярко-янтарного цвета.</p><button class="buy-btn">В корзину</button></div>
+        <div class="tea-item" data-type="black"><h3>Лапсанг Сушонг</h3><p>Аромат копчения на сосновых дровах.</p><button class="buy-btn">В корзину</button></div>
+        <!-- ЗЕЛЕНЫЙ ЧАЙ -->
+        <div class="category-title" data-type="green">Зеленый чай</div>
+        <div class="tea-item" data-type="green"><h3>Лун Цзин (Китай)</h3><p>Жареные семечки и весенняя свежесть.</p><button class="buy-btn">В корзину</button></div>
+        <div class="tea-item" data-type="green"><h3>Сенча (Япония)</h3><p>Морская свежесть и травяной тон.</p><button class="buy-btn">В корзину</button></div>
+        <div class="tea-item" data-type="green"><h3>Генмайча (Япония)</h3><p>Смесь с обжаренным коричневым рисом.</p><button class="buy-btn">В корзину</button></div>
+        <div class="tea-item" data-type="green"><h3>Матча (Япония)</h3><p>Порошковый чай с мощным «умами».</p><button class="buy-btn">В корзину</button></div>
+        <div class="tea-item" data-type="green"><h3>Би Ло Чунь (Китай)</h3><p>Фруктовый аромат нежных спиралей.</p><button class="buy-btn">В корзину</button></div>
+        <div class="tea-item" data-type="green"><h3>Би Ло Чунь (Китай)</h3><p>Фруктовый аромат нежных спиралей.</p><button class="buy-btn">В корзину</button></div>
+        <div class="tea-item" data-type="green"><h3>Мэн Дин Гань Лу (Китай)</h3><p>у чая нежный, мягкий и сливочный вкус.</p><button class="buy-btn">В корзину</button></div>
+        <div class="tea-item" data-type="green"><h3>Гёкуро (Япония)</h3><p>сорт, выращенный с использованием затенения: за 7–20 дней до сбора кусты накрывают от солнца. Настой густой, почти маслянистый, с богатой сладостью и телесной мягкостью.</p><button class="buy-btn">В корзину</button></div>
+        <div class="tea-item" data-type="green"><h3>Ходзича (Япония)</h3><p>проходит обжарку, при высокой температуре листья теряют часть кофеина и приобретают глубокий, тёплый вкус с нотами жареного ореха, древесины и карамели.</p><button class="buy-btn">В корзину</button></div>
+        <div class="tea-item" data-type="green"><h3>Дарджилинг(Индия)</h3><p>выращивается на горных склонах Гималаев, собирается вручную. Первый весенний сбор дарджилинга по виду и аромату больше похож на зелёный чай: он имеет светлый настой и нежный вкус, из-за чего его часто называют «чайным шампанским»</p><button class="buy-btn">В корзину</button></div>
+        <div class="tea-item" data-type="green"><h3>Кукича (Япония)</h3><p>лёгкий, не терпкий чай, настой нежно-зелёного цвета, обычно мутноватый, с выраженной сладостью. </p><button class="buy-btn">В корзину</button></div>
+        <div class="tea-item" data-type="green"><h3>Сикким (Индия)</h3><p>листья собираются вручную на высоте 1000–2000 метров над уровнем моря, урожай снимают трижды в год (весной, летом и осенью), самым ценным считается весенний сбор. Из сиккима производят не только чёрный чай, но и зелёный, белый и улун. У чая золотистые оттенки, сладковатый вкус и лёгкое цветочное послевкусие.</p><button class="buy-btn">В корзину</button></div>
+        <div class="tea-item" data-type="green"><h3>Tan Cuong — чай из Тай Нгуен (Вьетнам)</h3><p>вкус — ореховый, сладковатый, без горечи.</p><button class="buy-btn">В корзину</button></div>
+        <div class="tea-item" data-type="green"><h3>«Снежный» зелёный чай (Вьетнам)</h3><p>растёт исключительно на севере в горных районах, настоящий снежный чай собирается очень рано и имеет из-за этого сероватый оттенок. Если его передержать на плантации, характерный вкус и аромат теряются — остаётся обычный зелёный чай.</p><button class="buy-btn">В корзину</button></div>
+        <div class="tea-item" data-type="green"><h3>TЖеньшень-улун(Вьетнам)</h3><p>зелёный чай в виде бесформенных комочков, чтобы раскрыть богатство вкуса и аромата этого сорта, его нужно заваривать несколько раз.</p><button class="buy-btn">В корзину</button></div>
+        <div class="tea-item" data-type="green"><h3>Хуан Шань Мао Фэн (Китай)</h3><p>у сорта нежный аромат с нотами клевера, освежающий вкус и сладковатое ненавязчивое послевкусие.</p><button class="buy-btn">В корзину</button></div>
+        <!-- БЕЛЫЙ ЧАЙ -->
+        <div class="category-title" data-type="white">Белый чай</div>
+        <div class="tea-item" data-type="white"><h3>Бай Хао Инь Чжэнь(Китай)</h3><p>Только самые нежные серебряные почки.</p><button class="buy-btn">В корзину</button></div>
+        <div class="tea-item" data-type="white"><h3>Шоу Мэй(Китай)</h3><p>цветочно-медовая сладость. Аромат фруктовый, душистый, с приятным запахом осенней листвы. Настой у этого чая насыщенный, жёлто-оранжевого цвета. Послевкусие свежее и длительное.</p><button class="buy-btn">В корзину</button></div>
+        <div class="tea-item" data-type="white"><h3>Юэ Гуан Бай</h3><p>«Белый лунный свет» из провинции Юньнань.</p><button class="buy-btn">В корзину</button></div>
+        <div class="tea-item" data-type="white"><h3>Бай Му Дань(Китай)</h3><p> нежный бархатистый, с небольшой терпкостью. Можно уловить сладость и нотки мёда, орехов и луговых трав. Настой полупрозрачный, с зеленоватым оттенком, послевкусие долгое и приятное.</p><button class="buy-btn">В корзину</button></div>
+        <!-- УЛУНЫ -->
+        <div class="category-title" data-type="oolong">Улуны</div>
+        <div class="tea-item" data-type="oolong"><h3>Те Гуань Инь</h3><p>Бирюзовый чай, глубокий аромат орхидеи.</p><button class="buy-btn">В корзину</button></div>
+        <div class="tea-item" data-type="oolong"><h3>Да Хун Пао</h3><p>Утесный чай, ноты огня и пряностей.</p><button class="buy-btn">В корзину</button></div>\
+        <div class="tea-item" data-type="oolong"><h3>Фэн Хуан Дань Цун («Одинокие кусты с горы Феникса»), или «Фениксовый улун»</h3><p>выращивается в уездах Чаоань, Шаопин, Цяолин провинции Гуандун.</p><button class="buy-btn">В корзину</button></div>
+        <div class="tea-item" data-type="oolong"><h3>Дун Дин</h3><p>тайваньский высокогорный улун с тонкими сливочно-фруктовыми нотами.</p><button class="buy-btn">В корзину</button></div>
+        <div class="tea-item" data-type="oolong"><h3>Габа Алишань</h3><p>Тайваньский чай для концентрации.</p><button class="buy-btn">В корзину</button></div>
+        <!-- ПУЭР -->
+        <div class="category-title" data-type="pu-erh">Пуэр</div>
+        <div class="tea-item" data-type="pu-erh"><h3>Шу Пуэр Гун Тин</h3><p>Императорский пуэр, мягкий древесный вкус.</p><button class="buy-btn">В корзину</button></div>
+        <div class="tea-item" data-type="pu-erh"><h3>Сяо Цин Гань</h3><p>Пуэр, созревший в кожуре мандарина.</p><button class="buy-btn">В корзину</button></div>
+        <div class="tea-item" data-type="pu-erh"><h3>Лао Ча Тоу</h3><p>Густой настой «старых чайных голов».</p><button class="buy-btn">В корзину</button></div>
+        <div class="tea-item" data-type="pu-erh"><h3>Шэн пуэр (сырой, «зелёный» пуэр)</h3><p>искусственно ферментированный чай тёмного цвета.</p><button class="buy-btn">В корзину</button></div>
+    </div>
+</main>
+<footer class="footer">
+    <div class="footer-grid">
+        <div class="footer-col">
+            <h4>Покупателям</h4>
+            <ul>
+                <li>Частые вопросы</li>
+                <li>Юридическая информация</li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Партнёрам</h4>
+            <ul>
+                <li>Поставлять чай</li>
+                <li>Открыть чайную точку</li>
+                <li>Предложить плантацию</li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Проекты</h4>
+            <ul>
+                <li>Tea Guru</li>
+                <li>Tea Stream</li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Компания</h4>
+            <ul>
+                <li>О нас</li>
+                <li>Пресс-служба</li>
+                <li>Контакты</li>
+            </ul>
+        </div>
+    </div>
+    <p class="copyright">© Tea Garden 2004-2026. Все права защищены.</p>
+</footer>
+<script>
+    //* Логика фильтра *//
+    const filter = document.getElementById('tea-filter');
+    const items = document.querySelectorAll('.tea-item, .category-title');
+
+    filter.addEventListener('change', function() {
+        const selectedType = this.value;
+        items.forEach(item => {
+            const itemType = item.getAttribute('data-type');
+            if (selectedType === 'all' || itemType === selectedType) {
+                item.classList.remove('hidden');
+            } else {
+                item.classList.add('hidden');
+            }
+        });
+    });
+    //* Логика кнопок покупки *//
+    document.querySelectorAll('.buy-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const teaName = this.parentElement.querySelector('h3').innerText;
+            alert(`Товар "${teaName}" успешно добавлен в корзину!`);
+        });
+    });
+    
+</script>
+</body>
+</html>
